@@ -9,5 +9,5 @@ def cat_arrays(arr1, arr2):
     for i in arr1:
         finalarr.append(i)
     for i in arr2:
-        finalarr.append(i)         
+        finalarr.append(i)
     return finalarr 
