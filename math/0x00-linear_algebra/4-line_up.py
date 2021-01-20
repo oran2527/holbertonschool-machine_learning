@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """ array adder """
 
+
 def add_arrays(arr1, arr2):
     """ function to add two arrays """
 
@@ -23,6 +24,7 @@ def add_arrays(arr1, arr2):
             return finallist
     else:
         return None
+
 
 def matrix_shape(matrix_sub):
     """ matrix to define a matrix """
