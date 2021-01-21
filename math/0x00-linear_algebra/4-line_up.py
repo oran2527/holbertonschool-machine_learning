@@ -35,5 +35,5 @@ def matrix_shape(matrix_sub):
         size.append(len(matrix_sub[0]))
         size.append(len(matrix_sub[0][0]))
         return size
-    except:
+    except Exception as ex:
         return size
