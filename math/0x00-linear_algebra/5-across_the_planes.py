@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """ matrix 2D adder """
 
+
 def add_matrices2D(mat1, mat2):
     """ function to add two matrices """
 
@@ -33,10 +34,10 @@ def matrix_shape(matrix_sub):
     """ matrix to define a matrix """
 
     size = []
-    try:   
+    try:
         size.append(len(matrix_sub))
         size.append(len(matrix_sub[0]))
         size.append(len(matrix_sub[0][0]))
         return size
-    except:
+    except Exception as ex:
         return size
