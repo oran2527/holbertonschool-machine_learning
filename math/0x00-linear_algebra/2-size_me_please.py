@@ -7,9 +7,10 @@ def matrix_shape(matrix):
 
     size = []
     try:
-        size.append(len(matrix))
-        size.append(len(matrix[0]))
-        size.append(len(matrix[0][0]))
-        return size
+        if type(matrix) == list: 
+            size.append(int(len(matrix)))
+            size.append(int(len(matrix[0])))
+            size.append(int(len(matrix[0][0])))
+            return size
     except Exception as ex:
         return size
