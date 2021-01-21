@@ -10,4 +10,4 @@ def cat_arrays(arr1, arr2):
         finalarr.append(i)
     for i in arr2:
         finalarr.append(i)
-    return finalarr 
+    return finalarr
