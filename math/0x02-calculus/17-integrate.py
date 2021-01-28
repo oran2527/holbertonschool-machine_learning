@@ -6,17 +6,17 @@ def poly_integral(poly, C=0):
     """function to calculate integral"""
 
     if type(poly) == list or type(C) == int:
-        i = len(poly)        
+        i = len(poly)
         j = 1
         res = 0
         final = []
-        if i > 1:            
+        if i > 1:
             final.append(C)
-            final.append(poly[0]) 
-            while i > j: 
+            final.append(poly[0])
+            while i > j:
                 res = poly[j] / (j + 1)
                 if abs(res) - int(res) == 0:
-                    res = int(res)                                                      
+                    res = int(res)
                 final.append(res)
                 j = j + 1
                 res = 0
