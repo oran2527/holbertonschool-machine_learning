@@ -1,0 +1,34 @@
+#!/usr/bin/env python3
+""" program to calculate poisson distribution """
+
+
+class Poisson:
+    """ poisson class """
+
+    def __init__(self, data=None, lambtha=1.):
+        """ poisson class constructor """
+
+        if data is None:
+            try:
+                if lambtha <= 0:
+                    raise ValueError
+                else:
+                    self.lambtha = float(lambtha)
+                self.lambtha = float(lambtha)
+            except ValueError:
+                print("lambtha must be a positive value")
+        else:
+            try:
+                if type(data) != list:
+                    raise TypeError
+                if len(data) <= 2:
+                    raise ValueError
+                total = 0
+
+                for i in data:
+                    total = total + i
+                self.lambtha = float(total / len(data))
+            except TypeError:
+                print("data must be a list")
+            except ValueError:
+                print("data must contain multiple values")
