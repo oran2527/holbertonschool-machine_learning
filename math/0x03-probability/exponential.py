@@ -37,15 +37,15 @@ class Exponential:
 
         if x < 0:
             return 0
-        if self.lambtha is not None:            
+        if self.lambtha is not None:
             e = 2.7182818285
-            return self.lambtha * (e ** (-1 * self.lambtha * x)) 
+            return self.lambtha * (e ** (-1 * self.lambtha * x))
 
     def cdf(self, x):
         """function to calculate cdf distribution"""
 
         if x < 0:
             return 0
-        if self.lambtha is not None:            
+        if self.lambtha is not None:
             e = 2.7182818285
-            return 1 - (e ** ( -1 * self.lambtha * x))       
+            return 1 - (e ** (-1 * self.lambtha * x))
