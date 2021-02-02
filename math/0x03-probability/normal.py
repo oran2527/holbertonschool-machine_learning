@@ -48,11 +48,13 @@ class Normal:
     def pdf(self, x):
         """function to calculate pdf distribution"""
 
-        if x < 0:
-            return 0
-        if self.lambtha is not None:
+        if self.mean is not None and self.stddev is not None:
             e = 2.7182818285
-            return self.lambtha * (e ** (-1 * self.lambtha * x))
+            pi = 3.1415926536
+            sd = self.stddev
+            m = self.mean
+            pwe = e ** (-1/2 * (((x - m) / sd) ** 2))
+            return (1 / (sd * ((2 * pi) ** (1/2)))) * pwe
 
     def cdf(self, x):
         """function to calculate cdf distribution"""
