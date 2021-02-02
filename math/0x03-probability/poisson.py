@@ -58,4 +58,4 @@ class Poisson:
             total = 0
             for i in range(0, k + 1):
                 total = total + self.pmf(i)
-            return total        
+            return total
