@@ -59,8 +59,15 @@ class Normal:
     def cdf(self, x):
         """function to calculate cdf distribution"""
 
-        if x < 0:
-            return 0
-        if self.lambtha is not None:
+        if self.mean is not None and self.stddev is not None:
             e = 2.7182818285
-            return 1 - (e ** (-1 * self.lambtha * x))
+            pi = 3.1415926536
+            sd = self.stddev
+            m = self.mean
+            x0 = (x - m) / (sd * (2 ** (1/2)))
+            x1 = (x0 ** 3) / 3
+            x2 = (x0 ** 5) / 10
+            x3 = (x0 ** 7) / 42
+            x4 = (x0 ** 9) / 216
+            erf = (2 / (pi ** (1/2))) * (x0 - x1 + x2 - x3 + x4)
+            return ((1 + erf) / 2)
