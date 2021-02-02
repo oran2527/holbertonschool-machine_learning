@@ -46,3 +46,16 @@ class Poisson:
                 total = total * i
             e = 2.7182818285
             return ((e ** (- self.lambtha)) * ((self.lambtha) ** k)) / total
+
+    def cdf(self, k):
+        """function to calculate cdf distribution"""
+
+        if type(k) != int:
+            k = int(k)
+        if k < 0:
+            return 0
+        if self.lambtha is not None:
+            total = 0
+            for i in range(0, k + 1):
+                total = total + self.pmf(i)
+            return total        
