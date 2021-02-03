@@ -38,23 +38,24 @@ class Binomial:
         """function to calculate pmf distribution"""
         if k <= 0:
             return 0
-        k = int(k)
-        if self.n is not None and self.p is not None:            
-            n = self.n
-            p = self.p
-            q = 1 - p
-            facn = 1
-            fack = 1
-            facnk = 1
-            pmf = 0
+        else:
+            if self.n is not None and self.p is not None and k is not None:
+                k = int(k)
+                n = self.n
+                p = self.p
+                q = 1 - p
+                facn = 1
+                fack = 1
+                facnk = 1
+                pmf = 0
 
-            for i in range(1, n + 1):
-                facn = facn * i
-            for i in range(1, k + 1):
-                fack = fack * i
-            for i in range(1, n - k + 1):
-                facnk = facnk * i
-            return ((facn / (fack * facnk)) * (p ** k) * (q ** (n - k)))
+                for i in range(1, n + 1):
+                    facn = facn * i
+                for i in range(1, k + 1):
+                    fack = fack * i
+                for i in range(1, n - k + 1):
+                    facnk = facnk * i
+                return ((facn / (fack * facnk)) * (p ** k) * (q ** (n - k)))
 
     def cdf(self, x):
         """function to calculate cdf distribution"""
