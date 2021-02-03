@@ -9,29 +9,20 @@ class Poisson:
         """ poisson class constructor """
 
         if data is None:
-            try:
-                if lambtha <= 0:
-                    raise ValueError
-                else:
-                    self.lambtha = float(lambtha)
+            if lambtha <= 0:
+                raise ValueError("lambtha must be a positive value")
+            else:
                 self.lambtha = float(lambtha)
-            except ValueError:
-                print("lambtha must be a positive value")
+                self.lambtha = float(lambtha)
         else:
-            try:
-                if type(data) != list:
-                    raise TypeError
-                if len(data) <= 2:
-                    raise ValueError
-                total = 0
-
-                for i in data:
-                    total = total + i
-                self.lambtha = float(total / len(data))
-            except TypeError:
-                print("data must be a list")
-            except ValueError:
-                print("data must contain multiple values")
+            if type(data) != list:
+                raise TypeError("data must be a list")
+            if len(data) <= 2:
+                raise ValueError("data must contain multiple values")
+            total = 0
+            for i in data:
+                total = total + i
+            self.lambtha = float(total / len(data))
 
     def pmf(self, k):
         """function to calculate pmf distribution"""
