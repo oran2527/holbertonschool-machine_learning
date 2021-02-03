@@ -38,8 +38,8 @@ class Binomial:
         """function to calculate pmf distribution"""
         if k <= 0:
             return 0
-        if self.n is not None and self.p is not None:
-            k = int(k)
+        k = int(k)
+        if self.n is not None and self.p is not None:            
             n = self.n
             p = self.p
             q = 1 - p
