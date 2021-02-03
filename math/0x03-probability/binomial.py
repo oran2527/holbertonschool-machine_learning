@@ -34,16 +34,27 @@ class Binomial:
             self.n = int(n)
             self.p = float(p)
 
-    def pdf(self, x):
-        """function to calculate pdf distribution"""
+    def pmf(self, k):
+        """function to calculate pmf distribution"""
+        if k <= 0:
+            return 0
+        if self.n is not None and self.p is not None:
+            k = int(k)
+            n = self.n
+            p = self.p
+            q = 1 - p
+            facn = 1
+            fack = 1
+            facnk = 1
+            pmf = 0
 
-        if self.mean is not None and self.stddev is not None:
-            e = 2.7182818285
-            pi = 3.1415926536
-            sd = self.stddev
-            m = self.mean
-            pwe = e ** (-1/2 * (((x - m) / sd) ** 2))
-            return (1 / (sd * ((2 * pi) ** (1/2)))) * pwe
+            for i in range(1, n + 1):
+                facn = facn * i
+            for i in range(1, k + 1):
+                fack = fack * i
+            for i in range(1, n - k + 1):
+                facnk = facnk * i
+            return ((facn / (fack * facnk)) * (p ** k) * (q ** (n - k)))
 
     def cdf(self, x):
         """function to calculate cdf distribution"""
