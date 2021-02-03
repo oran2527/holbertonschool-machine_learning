@@ -9,31 +9,24 @@ class Normal:
         """ normal class constructor """
 
         if data is None:
-            try:
-                if stddev <= 0:
-                    raise ValueError
-                self.mean = float(mean)
-                self.stddev = float(stddev)
-            except ValueError:
-                print("stddev must be a positive value")
+            if stddev <= 0:
+                raise ValueError("stddev must be a positive value")
+            self.mean = float(mean)
+            self.stddev = float(stddev)
+
         else:
-            try:
-                if type(data) != list:
-                    raise TypeError
-                if len(data) <= 2:
-                    raise ValueError
-                total = 0
-                for i in data:
-                    total = total + i
-                self.mean = float(total / len(data))
-                sigma = 0
-                for i in data:
-                    sigma = sigma + (i - self.mean) ** 2
-                self.stddev = (sigma / len(data)) ** (1/2)
-            except TypeError:
-                print("data must be a list")
-            except ValueError:
-                print("data must contain multiple values")
+            if type(data) != list:
+                raise TypeError("data must be a list")
+            if len(data) <= 2:
+                raise ValueError("data must contain multiple values")
+            total = 0
+            for i in data:
+                total = total + i
+            self.mean = float(total / len(data))
+            sigma = 0
+            for i in data:
+                sigma = sigma + (i - self.mean) ** 2
+            self.stddev = (sigma / len(data)) ** (1/2)
 
     def z_score(self, x):
         """function to calculate z_score"""
