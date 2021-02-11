@@ -11,8 +11,6 @@ X = X_3D.reshape((X_3D.shape[0], -1)).T
 np.random.seed(0)
 neuron = Neuron(X.shape[0])
 neuron._Neuron__b = 1
-print(np.shape(X))
-"""
 A = neuron.forward_prop(X)
 if (A is neuron.A):
-        print(A)"""
+        print(np.shape(A))
