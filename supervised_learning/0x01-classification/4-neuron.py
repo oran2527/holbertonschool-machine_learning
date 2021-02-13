@@ -56,7 +56,8 @@ class Neuron:
 
     def evaluate(self, X, Y):
         """Evaluates the neuron’s predictions"""
-
-        j = self.cost(Y, self.forward_prop(X))
-        p = np.where(self.forward_prop(X) < 0.5, 0, 1)
+        
+        a = self.forward_prop(X)
+        j = self.cost(Y, a)
+        p = np.where(a < 0.5, 0, 1)
         return p, j
