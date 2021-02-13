@@ -56,8 +56,9 @@ class Neuron:
     def evaluate(self, X, Y):
         """Evaluates the neuron’s predictions"""
 
-        j = self.cost(Y, self.forward_prop(X))
-        p = np.where(self.forward_prop(X) < 0.5, 0, 1)
+        self.forward_prop(X)
+        j = self.cost(Y, self.__A)
+        p = np.where(self.__A >= 0.5, 1, 0)
         return p, j
 
     def gradient_descent(self, X, Y, A, alpha=0.05):
