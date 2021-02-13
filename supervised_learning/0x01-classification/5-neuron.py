@@ -74,7 +74,7 @@ class Neuron:
         gradient = np.subtract(self.W, learning_rate_j_theta)
 
         sigma_b = np.sum(h_theta_minus_y)
-        gradient_bias = (1 / m) * (alpha * sigma_b)
+        gradient_bias = np.subtract(self.__b, (1 / m) * (alpha * sigma_b))
 
         self.__W = gradient
         self.__b = gradient_bias
