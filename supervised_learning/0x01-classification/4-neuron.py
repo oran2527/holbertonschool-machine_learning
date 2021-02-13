@@ -36,21 +36,17 @@ class Neuron:
 
     def forward_prop(self, X):
         """forward propagation function"""
-        e = 2.7182818285
+        
 
         fp = np.matmul(self.W, X) + self.b
-        fsig = 1 / (1 + (e ** -(fp)))
+        fsig = 1 / (1 + np.exp(-1 * fp))
         self.__A = fsig
         return self.__A
 
     def cost(self, Y, A):
         """cost of the model using logistic regression"""
 
-        m = Y.shape[1]
-
-        """j = -1 * (1 / m) * np.sum(
-            np.multiply(Y, np.log(A)) +
-                np.multiply(1 - Y, np.log(1.0000001 - A)))"""
+        m = Y.shape[1]        
 
         j = - (1 / m) * np.sum(
             np.multiply(
