@@ -26,3 +26,33 @@ class NeuralNetwork:
         self.b2 = 0
         self.A2 = 0
         self.W2 = np.random.randn(nodes).reshape(1, nodes)
+
+        @property
+        def b1(self):
+            """b1 getter"""
+            return self.b1
+
+        @property
+        def A1(self):
+            """A1 getter"""
+            return self.A1
+
+        @property
+        def W1(self):
+            """W1 getter"""
+            return self.W1
+
+        @property
+        def b2(self):
+            """b2 getter"""
+            return self.b2
+
+        @property
+        def A2(self):
+            """A2 getter"""
+            return self.A2
+
+        @property
+        def W2(self):
+            """W2 getter"""
+            return self.W2
