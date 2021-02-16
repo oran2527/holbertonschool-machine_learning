@@ -64,10 +64,21 @@ class NeuralNetwork:
         W1T = np.transpose(self.W1)
         A_1 = np.transpose(np.matmul(XT, W1T)) + self.__b1
         self.__A1 = 1 / (1 + np.exp(-1 * A_1))
-        
+
         A1T = np.transpose(self.A1)
         W2T = np.transpose(self.W2)
         A_2 = np.transpose(np.matmul(A1T, W2T)) + self.__b2
         self.__A2 = 1 / (1 + np.exp(-1 * A_2))
 
         return self.__A1, self.__A2
+
+    def cost(self, Y, A):
+        """cost of the model"""
+
+        m = np.shape(Y)
+
+        j1 = -1 * (1 / m[1])
+        j3 = np.multiply(Y, np.log(A))
+        j4 = np.multiply(1 - Y, np.log(1.0000001 - A))
+        j = j1 * np.sum(j3 + j4)
+        return j
