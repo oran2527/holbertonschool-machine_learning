@@ -19,9 +19,8 @@ def forward_prop(x, layer_sizes=[], activations=[]):
 
     """
 
-    if len(layer_sizes) and len(activations):
-        if len(layer_sizes) == len(activations):
-            C = x
-            for i in range(len(layer_sizes)):
-                C = create_layer(A, layer_sizes[i], activations[i])
-            return C   
+    i = tf.contrib.layers.variance_scaling_initializer(mode="FAN_AVG")
+    la = tf.layers.Dense(units=n, activation=activation,
+                         kernel_initializer=init,
+                         name='layer')
+    return layer(prev)
