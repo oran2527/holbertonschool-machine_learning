@@ -21,8 +21,7 @@ def forward_prop(x, layer_sizes=[], activations=[]):
 
     if len(layer_sizes) and len(activations):
         if len(layer_sizes) == len(activations):
-            A = x
+            C = x
             for i in range(len(layer_sizes)):
-                A = create_layer(A, layer_sizes[i], activations[i])
-            return A
-    return None
+                C = create_layer(A, layer_sizes[i], activations[i])
+            return C   
