@@ -11,11 +11,10 @@ def create_placeholders(nx, classes):
     Returns: placeholders named x and y, respectively
     x is the placeholder for the input data to the neural network
     y is the placeholder for the one-hot labels for the input data
-    
+
     """
 
     p1 = tf.placeholder("float", shape=[None, nx], name='x')
     p2 = tf.placeholder("float", shape=[None, nx], name='y')
 
     return p1, p2
-    
