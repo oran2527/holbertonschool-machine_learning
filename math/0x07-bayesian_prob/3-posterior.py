@@ -72,7 +72,7 @@ def marginal(x, n, P, Pr):
 
 
 def posterior(x, n, P, Pr):
-    """ Intersection with prior """    
+    """ Intersection with prior """ 
     int = intersection(x, n, P, Pr)
     marg = marginal(x, n, P, Pr)
     post = int / marg
