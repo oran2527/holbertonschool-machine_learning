@@ -30,4 +30,3 @@ class GaussianProcess():
         # Equation (5)
         sigma = K_ss - K_s.T.dot(K_inv).dot(K_s)
         return mu, np.diag(sigma)
-    
