@@ -52,6 +52,7 @@ def cumulative_bleu(references, sentence, n):
     for i in range(n):
         P, r = ngram_bleu(references, sentence, i + 1)
         precisions.append(P)
+    
     if c > r:
         BP = 1
     else:
