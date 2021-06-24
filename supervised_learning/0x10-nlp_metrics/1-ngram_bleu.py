@@ -40,7 +40,7 @@ def ngram_bleu(references, sentence, n):
         if match > max_match:
             max_match = match
     P = max_match / len(cn)
-    
+
     if c > r:
         BP = 1
     else:
